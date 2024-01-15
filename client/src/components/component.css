@@ -1,0 +1,62 @@
+.button{
+    background-color: blue;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 120px;
+    cursor: pointer;
+}
+.button:hover{
+    width: 125px;
+    background-color: darkblue;
+}
+.home-cont{
+    border-bottom: 1px  solid black;
+    text-align: center;
+    width:1000px;
+    padding: 50px;
+
+}
+.login-cont{
+    display: flex;
+    justify-content: center;
+    width:1000px;
+}
+.inner-login{
+    border: 1px solid black;
+    padding: 10px;
+    margin: 90px;
+    padding: 20px;
+    width: 200px;
+    border-radius: 4px;
+}
+.signup-cont{
+    display: flex;
+    justify-content: center;
+    width:1000px; 
+}
+.inner-signup{
+    border: 1px solid black;
+    padding: 10px;
+    margin: 90px;
+    padding: 20px;
+    width: 200px;
+    border-radius: 4px; 
+}
+.flexbox-cnt{
+    display: flex;
+    justify-content: space-between;
+    height:60px;
+    width: 1000px;
+    
+}
+.cont{
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+    margin: 50px;
+    margin-left: 280px;
+    margin-right: 280px;
+    border-radius: 4px;
+}
