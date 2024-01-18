@@ -11,7 +11,7 @@ const schema=zod.object({
     username:zod.string(),
     password:zod.string(),
 });
-mongoose.connect("mongodb+srv://vikkymsd777:TAm6HPFXUd4FIJig@cluster0.xpoedji.mongodb.net/businesscard-gen");
+mongoose.connect("your monodb connection url");
 const UserSchema=mongoose.Schema({
     username:String,
     password:String
