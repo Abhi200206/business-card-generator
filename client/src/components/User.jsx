@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { useParams,useNavigate } from 'react-router-dom';
 import Cards from './Cards';
 import "./component.css";
+import check from '../check';
 function Card({val,setVal})
-{
-  
+{  
     useEffect(() => {
         const fetchData = async () => {
           if (val.isClick) {
@@ -73,6 +73,16 @@ function User() {
   });
   const {username}=useParams();
   let navigate=useNavigate();
+  useEffect(()=>{
+    let bool=check();
+    bool.then((val)=>{
+      console.log("bool val: ",val);
+    if(!val)
+    {
+        navigate('/login')
+    }
+    })
+  },[]);
   console.log("username from hook: ",username)
   function generate()
   {
@@ -107,33 +117,34 @@ function User() {
  }
 
   return (
-    <div  >
-      <div className='flexbox-cnt'>
-      <div><h2>Business Card Generator</h2></div>
-      <div>
-      <button className='button' onClick={logout}>Logout</button>
-      <button className='button' onClick={()=>navigate(`/user/${username}/cards`)}>cards</button>
+    <div className='w-full' >
+      <div className='flex justify-between'>
+      <div><p className='font-black text-[20px] bg-gradient-to-r from-blue-200 to-red-500 mt-2 ml-2'>Business Card Generator</p></div>
+      <div className='flex gap-4 pr-2'> 
+      <button className='bg-black text-white text-center cursor-pointer rounded p-2 px-4 mt-2' onClick={logout}>Logout</button>
+      <button className='bg-black text-white text-center cursor-pointer rounded p-2 px-4 mt-2' onClick={()=>navigate(`/user/${username}/cards`)}>cards</button>
       </div>
       </div>
-      <div>
-      <div className='cont'>
-      <h3>Bussiness Card generator</h3>
-      <input type="text" name='name' onChange={save} placeholder='enter your name' />
+      <div className='flex justify-center'>
+      <div className='border-[2px] p-2 rounded text-center  '>
+      <p className='font-bold py-2 mb-2 bg-gradient-to-r from-blue-200 to-red-500'>Bussiness Card generator</p>
+      <input className='w-[300px] my-1 border-[1px] rounded px-2' type="text" name='name' onChange={save} placeholder='enter your name' />
       <br />
-      <input type="text" name='description' onChange={save} placeholder='enter your Description' />
+      <input className='w-[300px] my-1 border-[1px] rounded px-2' type="text" name='description' onChange={save} placeholder='enter your Description' />
       <br />
-      <input type="text" name='linkedurl' onChange={save} placeholder='enter your Linkedin url' />
+      <input className='w-[300px] my-1 border-[1px] rounded px-2' type="text" name='linkedurl' onChange={save} placeholder='enter your Linkedin url' />
       <br />
-      <input type="text" name='twitterurl' onChange={save} placeholder='enter your twitter url' />
+      <input className='w-[300px] my-1 border-[1px] rounded px-2' type="text" name='twitterurl' onChange={save} placeholder='enter your twitter url' />
       <br />
-      <input type="text" name='intrests' onChange={save} placeholder='enter your intrests separated by commas(,) ' />
+      <input className='w-[300px] my-1 border-[1px] rounded px-2' type="text" name='intrests' onChange={save} placeholder='enter your intrests separated by "," ' />
       <br />
-      <button className='button'  onClick={generate}>Generate</button>
+      <button className='w-[300px] bg-black text-white text-center cursor-pointer rounded p-2 px-4 mt-2'  onClick={generate}>Generate</button>
       </div>
       <br /> <br />
+      </div>
+      <div className='flex justify-center mt-8 mb-6'>
       {val.disp && <Card val={val} setVal={setVal} />}
       </div>
-      
     </div>
   )
 }

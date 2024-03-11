@@ -11,7 +11,7 @@ function App() {
   return (
     <>
     
-     <div style={{display:"flex",justifyContent:"space-between"}}>
+     <div >
      <Router>
         <Routes>
           <Route path='/' element={<Home/>}/>
